@@ -1,0 +1,86 @@
+"use client"
+// REACT HOOK
+import { useContext } from "react"
+
+// CONTEXT
+import { SpeakerMenuContext } from "@/components/contexts/SpeakerMenuContext"
+// CONTEXT PROVIDER
+import { SpeakerModalProvider } from "@/components/contexts/SpeakerModalContext"
+
+// COMPONENT
+import AddSpeakerDialog from "./AddSpeakerDialog"
+
+const SpeakerMenu = () => {
+	const {
+		speakingSaturday,
+		setSpeakingSaturday,
+		speakingSunday,
+		setSpeakingSunday,
+		searchText,
+		setSearchText,
+	} = useContext(SpeakerMenuContext)
+
+	return (
+		<div
+			className="btn-toolbar"
+			role="toolbar"
+			aria-label="Speaker toolbar filter"
+		>
+			<div className="toolbar-trigger mb-3">
+				<div className="toolbar-search">
+					<input
+						value={searchText}
+						onChange={(event) => {
+							setSearchText(event.target.value)
+						}}
+						type="text"
+						className="form-control"
+						placeholder="Search"
+					/>
+				</div>
+
+				<div className="form-check-inline">
+					<label className="form-check-label">
+						<input
+							type="checkbox"
+							className="form-check-input"
+							onChange={() => {
+								setSpeakingSaturday(!speakingSaturday)
+							}}
+							checked={speakingSaturday}
+						/>
+						Saturday Speakers
+					</label>
+				</div>
+
+				<div className="form-check-inline">
+					<label className="form-check-label">
+						<input
+							type="checkbox"
+							className="form-check-input"
+							onChange={() => {
+								setSpeakingSunday(!speakingSunday)
+							}}
+							checked={speakingSunday}
+						/>
+						Sunday Speakers
+					</label>
+				</div>
+				<div className="input-group">
+					<SpeakerModalProvider>
+						<AddSpeakerDialog
+						// modalShow={modalShow}
+						// setModalShow={setModalShow}
+						// setModalSpeakerId={setModalSpeakerId}
+						// setModalSpeakerFirstName={setModalSpeakerFirstName}
+						// setModalSpeakerLastName={setModalSpeakerLastName}
+						// setModalSpeakerEmail={setModalSpeakerEmail}
+						// setModalSpeakerImageUrl={setModalSpeakerImageUrl}
+						/>
+					</SpeakerModalProvider>
+				</div>
+			</div>
+		</div>
+	)
+}
+export default SpeakerMenu
