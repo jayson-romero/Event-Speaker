@@ -1,9 +1,6 @@
-const SpeakerLine = ({
-	speakerRec,
-	// toggleFavoriteSpeaker,
-	updating,
-	highlight,
-}) => {
+import SpeakerImageToggleOnScroll from "../speakers/SpeakerImageToggleOnScroll"
+import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine"
+const SpeakerLine = ({ speakerRec, highlight }) => {
 	return (
 		<div className="col-xl-12 col-md-12">
 			<div className="card border-0 speaker-list">
@@ -11,12 +8,11 @@ const SpeakerLine = ({
 					<div className="d-flex align-items-center">
 						<div className="flex-shrink-0">
 							{speakerRec?.imageUrl ? (
-								//  <SpeakerImageToggleOnScroll
-								//    imageUrl={speakerRec?.imageUrl}
-								//    alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
-								//    thumbNail={true}
-								//  />
-								<div className="blue-box-background" />
+								<SpeakerImageToggleOnScroll
+									imageUrl={speakerRec?.imageUrl}
+									alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
+									thumbNail={true}
+								/>
 							) : (
 								<div className="blue-box-background" />
 							)}
@@ -34,17 +30,7 @@ const SpeakerLine = ({
 										{speakerRec.firstName} {speakerRec.lastName}
 									</h5>
 									<div className="spinner-bottom">
-										{/* <FavoriteSpeakerToggleLine
-                   speakerRec={speakerRec}
-                   toggleFavoriteSpeaker={toggleFavoriteSpeaker}
-                 >
-                   {updating ? (
-                     <i
-                       className="spinner-border text-dark"
-                       role="status"
-                     />
-                   ) : null}
-                 </FavoriteSpeakerToggleLine> */}
+										<FavoriteSpeakerToggleLine speakerRec={speakerRec} />
 									</div>
 								</div>
 								<small className="text-muted">

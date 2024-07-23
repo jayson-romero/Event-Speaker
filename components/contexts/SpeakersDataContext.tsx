@@ -6,11 +6,20 @@ import userSpeakersData from "../hooks/useSpeakersData"
 export const SpeakersDataContext = createContext({})
 
 export const SpeakersDataProvider = ({ children }) => {
-	const { speakerList, loadingStatus } = userSpeakersData()
+	const {
+		speakerList,
+		loadingStatus,
+		createSpeaker,
+		updateSpeaker,
+		deleteSpeaker,
+	} = userSpeakersData()
 
 	const value = {
 		speakerList,
 		loadingStatus,
+		createSpeaker,
+		updateSpeaker,
+		deleteSpeaker,
 	}
 
 	return (

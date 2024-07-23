@@ -1,9 +1,14 @@
 // NEXT COMPONENT
 import Link from "next/link"
+import Image from "next/image"
 // CONTEXT PROVIDER
 import { SpeakerModalProvider } from "@/components/contexts/SpeakerModalContext"
 // COMPONENT
 import SpeakerModal from "./speakerModal/SpeakerModal"
+import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll"
+import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle"
+import DeleteSpeakerButton from "./DeleteSpeakerButton"
+import EditSpeakerDialog from "./EditSpeakerDialog"
 
 const SpeakerDetail = ({ speakerRec, showDetails }) => {
 	return (
@@ -13,23 +18,23 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
 				<div className="card border-0">
 					<div className="row g-0">
 						<div className="col-4">
-							{/* <SpeakerImageToggleOnScroll
-                imageUrl={speakerRec?.imageUrl}
-                alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
-                thumbNail={false}
-              /> */}
+							<SpeakerImageToggleOnScroll
+								imageUrl={speakerRec?.imageUrl}
+								alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
+								thumbNail={false}
+							/>
 						</div>
 
 						<div className="col-8 d-flex flex-column flex-nowrap">
 							<div className="card-body">
 								<div className="speaker-action d-flex">
 									<div className="favoriteToggleWrapper">
-										{/* <FavoriteSpeakerToggle speakerRec={speakerRec} /> */}
+										<FavoriteSpeakerToggle speakerRec={speakerRec} />
 									</div>
 
 									<div className="modifyWrapper">
-										{/* <EditSpeakerDialog {...speakerRec} />
-                    <DeleteSpeakerButton id={speakerRec.id} /> */}
+										<EditSpeakerDialog {...speakerRec} />
+										<DeleteSpeakerButton id={speakerRec.id} />
 									</div>
 								</div>
 								<h4 className="card-title">

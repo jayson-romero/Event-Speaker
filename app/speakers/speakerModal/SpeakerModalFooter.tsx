@@ -6,7 +6,8 @@ import { SpeakerModalContext } from "@/components/contexts/SpeakerModalContext"
 import { SpeakersDataContext } from "@/components/contexts/SpeakersDataContext"
 
 const SpeakerModalFooter = () => {
-	const { speakerList } = useContext(SpeakersDataContext)
+	const { speakerList, createSpeaker, updateSpeaker } =
+		useContext(SpeakersDataContext)
 	const {
 		setModalShow,
 		modalSpeakerId,
@@ -21,13 +22,13 @@ const SpeakerModalFooter = () => {
 			{modalSpeakerId !== 0 && (
 				<button
 					onClick={() => {
-						// updateSpeaker({
-						//   id: modalSpeakerId,
-						//   firstName: modalSpeakerFirstName,
-						//   lastName: modalSpeakerLastName,
-						//   imageUrl: modalSpeakerImageUrl,
-						//   email: modalSpeakerEmail,
-						// });
+						updateSpeaker({
+							id: modalSpeakerId,
+							firstName: modalSpeakerFirstName,
+							lastName: modalSpeakerLastName,
+							imageUrl: modalSpeakerImageUrl,
+							email: modalSpeakerEmail,
+						})
 						setModalShow(false)
 					}}
 					className="float-left btn btn-accent"
@@ -50,19 +51,19 @@ const SpeakerModalFooter = () => {
 				<button
 					className="btn btn-accent"
 					onClick={() => {
-						// createSpeaker({
-						//   firstName: modalSpeakerFirstName,
-						//   lastName: modalSpeakerLastName,
-						//   email: modalSpeakerEmail,
-						//   imageUrl: modalSpeakerImageUrl,
-						//   sat: true,
-						//   sun: true,
-						//   favorite: false,
-						//   company: "Code Camp",
-						//   twitterHandle: "unknown",
-						//   userBioShort: "Dummy Bio",
-						//   bio: "Dummy Bio",
-						// });
+						createSpeaker({
+							firstName: modalSpeakerFirstName,
+							lastName: modalSpeakerLastName,
+							email: modalSpeakerEmail,
+							imageUrl: modalSpeakerImageUrl,
+							sat: true,
+							sun: true,
+							favorite: false,
+							company: "Code Camp",
+							twitterHandle: "unknown",
+							userBioShort: "Dummy Bio",
+							bio: "Dummy Bio",
+						})
 						setModalShow(false)
 					}}
 				>

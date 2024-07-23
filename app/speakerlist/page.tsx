@@ -1,14 +1,16 @@
 "use client"
 // REACT HOOKS
 import {
+	useCallback,
 	useContext,
-	useReducer,
 	useEffect,
+	useReducer,
 	useState,
 	useTransition,
 } from "react"
 //CONTEXT
 import { ThemeContext } from "@/components/contexts/ThemeContext"
+import { SpeakersDataProvider } from "@/components/contexts/SpeakersDataContext"
 // AXIOS
 import axios from "axios"
 // COMPONENT
@@ -22,6 +24,26 @@ const List = ({ state, dispatch }) => {
 	const [highlightChars, setHighlightChars] = useState()
 	const [isPending, startTransition] = useTransition()
 	const speakers = state.speakers
+
+	// const toggleFavoriteSpeaker = (speakerRec) => {
+	// 	const speakerRecUpdated = {
+	// 		...speakerRec,
+	// 		favorite: !speakerRec.favorite,
+	// 	}
+
+	// 	// dispatch({
+	// 	// 	type: "updateSpeaker",
+	// 	// 	speaker: speakerRecUpdated,
+	// 	// })
+
+	// 	// console.log(speakers)
+	// 	// async function updateAsync(rec) {
+	// 	// 	setUpdatingId(rec.id)
+	// 	// 	await axios.put(`${URL}/${rec.id}`, speakerRecUpdated)
+	// 	// 	setUpdatingId(0)
+	// 	// }
+	// 	// updateAsync(speakerRecUpdated)
+	// }
 
 	return (
 		<div className="container">
@@ -69,11 +91,9 @@ const List = ({ state, dispatch }) => {
 						<SpeakerLine
 							key={speakerRec.id}
 							speakerRec={speakerRec}
-							updating={updatingId === speakerRec.id ? updatingId : 0}
-							//   toggleFavoriteSpeaker={useCallback(
-							//     () => toggleFavoriteSpeaker(speakerRec),
-							//     [speakerRec.favorite]
-							//   )}
+							// updating={updatingId === speakerRec.id ? updatingId : 0}
+							// toggleFavoriteSpeaker={toggleFavoriteSpeaker(speakerRec)}
+							// toggleFavoriteSpeaker={toggleFavoriteSpeaker(speakerRec)}
 							highlight={highlight}
 						/>
 					)
@@ -92,7 +112,7 @@ const SpeakerList = () => {
 				return {
 					...state,
 					loading: false,
-					speakers: [...action.speakers, ...createDummySpeakers(8000)],
+					speakers: [...action.speakers],
 				}
 			case "setLoadingStatus":
 				return {
@@ -135,9 +155,11 @@ const SpeakerList = () => {
 	}, [])
 
 	return (
-		<div className={darkTheme ? "theme-dark" : "theme-light"}>
-			<List state={state} dispatch={dispatch} />
-		</div>
+		<SpeakersDataProvider>
+			<div className={darkTheme ? "theme-dark" : "theme-light"}>
+				<List state={state} dispatch={dispatch} />
+			</div>
+		</SpeakersDataProvider>
 	)
 }
 export default SpeakerList
