@@ -23,7 +23,7 @@ const List = ({ state, dispatch }: { state: any; dispatch: any }) => {
 	const [searchName, setSearchName] = useState<any>("")
 	const [highlightChars, setHighlightChars] = useState<any>()
 	const [isPending, startTransition] = useTransition()
-	const speakers = state.speakers
+	const speakers: any = state.speakers
 
 	// const toggleFavoriteSpeaker = (speakerRec) => {
 	// 	const speakerRecUpdated = {
