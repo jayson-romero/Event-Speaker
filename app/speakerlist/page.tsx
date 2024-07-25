@@ -19,9 +19,9 @@ import SpeakerLine from "./SpeakerLine"
 const URL = process.env.NEXT_PUBLIC_URL
 
 const List = ({ state, dispatch }: { state: any; dispatch: any }) => {
-	const [updatingId, setUpdatingId] = useState(0)
-	const [searchName, setSearchName] = useState("")
-	const [highlightChars, setHighlightChars] = useState()
+	const [updatingId, setUpdatingId] = useState<any>(0)
+	const [searchName, setSearchName] = useState<any>("")
+	const [highlightChars, setHighlightChars] = useState<any>()
 	const [isPending, startTransition] = useTransition()
 	const speakers = state.speakers
 
@@ -104,9 +104,9 @@ const List = ({ state, dispatch }: { state: any; dispatch: any }) => {
 }
 
 const SpeakerList = () => {
-	const { darkTheme } = useContext(ThemeContext)
+	const { darkTheme } = useContext<any>(ThemeContext)
 
-	const reducer = (state, action) => {
+	const reducer = (state: any, action: any) => {
 		switch (action.type) {
 			case "speakersLoaded":
 				return {
@@ -120,7 +120,7 @@ const SpeakerList = () => {
 					loading: true,
 				}
 			case "updateSpeaker":
-				const speakersUpdated = state.speakers.map((rec) =>
+				const speakersUpdated = state.speakers.map((rec: any) =>
 					action.speaker.id === rec.id ? action.speaker : rec
 				)
 				return {
@@ -164,7 +164,7 @@ const SpeakerList = () => {
 }
 export default SpeakerList
 
-function createDummySpeakers(numToAdd) {
+function createDummySpeakers(numToAdd: any) {
 	let speakers = []
 	for (let increment = 1; increment < numToAdd; increment++) {
 		speakers.push({
