@@ -5,7 +5,7 @@ import { useContext } from "react"
 import { ThemeContext } from "@/components/contexts/ThemeContext"
 
 const About = () => {
-	const { darkTheme } = useContext(ThemeContext)
+	const { darkTheme } = useContext<any>(ThemeContext)
 
 	return (
 		<div className={darkTheme ? "theme-dark" : "theme-light"}>

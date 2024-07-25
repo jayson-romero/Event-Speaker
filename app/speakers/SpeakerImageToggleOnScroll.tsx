@@ -5,12 +5,16 @@ export default function SpeakerImageToggleOnScroll({
 	imageUrl,
 	alt,
 	thumbNail,
+}: {
+	imageUrl: any
+	alt: any
+	thumbNail: any
 }) {
 	const [inView, setInView] = useState(false)
 	const imageRef = useRef(null)
 	const [isLoading, setIsLoading] = useState(true)
 	const { speakingSaturday, speakingSunday, searchText } =
-		useContext(SpeakerMenuContext)
+		useContext<any>(SpeakerMenuContext)
 
 	function scrollHandler() {
 		setInView(isInView())

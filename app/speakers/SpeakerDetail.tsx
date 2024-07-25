@@ -10,7 +10,13 @@ import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle"
 import DeleteSpeakerButton from "./DeleteSpeakerButton"
 import EditSpeakerDialog from "./EditSpeakerDialog"
 
-const SpeakerDetail = ({ speakerRec, showDetails }) => {
+const SpeakerDetail = ({
+	speakerRec,
+	showDetails,
+}: {
+	speakerRec: any
+	showDetails: any
+}) => {
 	return (
 		<SpeakerModalProvider>
 			{speakerRec && <SpeakerModal />}

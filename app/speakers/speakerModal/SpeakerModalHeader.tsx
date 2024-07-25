@@ -7,7 +7,7 @@ import { IoCloseSharp } from "react-icons/io5"
 import { SpeakerModalContext } from "@/components/contexts/SpeakerModalContext"
 
 const SpeakerModalHeader = () => {
-	const { setModalShow, modalSpeakerId } = useContext(SpeakerModalContext)
+	const { setModalShow, modalSpeakerId } = useContext<any>(SpeakerModalContext)
 
 	return (
 		<div className="modal-header bg-main-gradient text-white ">

@@ -14,7 +14,7 @@ const AddSpeakerDialog = () => {
 		setModalSpeakerLastName,
 		setModalSpeakerEmail,
 		setModalSpeakerImageUrl,
-	} = useContext(SpeakerModalContext)
+	} = useContext<any>(SpeakerModalContext)
 
 	return (
 		<>

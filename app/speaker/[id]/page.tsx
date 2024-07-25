@@ -10,13 +10,13 @@ import { ThemeContext } from "@/components/contexts/ThemeContext"
 // COMPONENT
 import SpeakerDetail from "@/app/speakers/SpeakerDetail"
 
-const Inner = ({ id }) => {
-	const { darkTheme } = useContext(ThemeContext)
-	const { speakerList, loadingStatus } = useContext(SpeakersDataContext)
+const Inner = ({ id }: { id: string }) => {
+	const { darkTheme } = useContext<any>(ThemeContext)
+	const { speakerList, loadingStatus } = useContext<any>(SpeakersDataContext)
 
 	if (loadingStatus === "loading") return <div>Loading...</div>
 
-	const speakerRec = speakerList?.find((rec) => rec.id === id)
+	const speakerRec = speakerList?.find((rec: any) => rec.id === id)
 
 	return speakerRec ? (
 		<div className={darkTheme ? "theme-dark" : "theme-light"}>
@@ -27,7 +27,7 @@ const Inner = ({ id }) => {
 	)
 }
 
-const Speaker = (props) => {
+const Speaker = (props: any) => {
 	return (
 		<SpeakersDataProvider>
 			<Inner {...props.params} />

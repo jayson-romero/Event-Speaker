@@ -8,6 +8,12 @@ export default function EditSpeakerDialog({
 	lastName,
 	email,
 	imageUrl,
+}: {
+	id: any
+	firstName: any
+	lastName: any
+	email: any
+	imageUrl: any
 }) {
 	const {
 		setModalShow,
@@ -22,7 +28,7 @@ export default function EditSpeakerDialog({
 		setModalSpeakerEmail,
 		modalSpeakerImageUrl,
 		setModalSpeakerImageUrl,
-	} = useContext(SpeakerModalContext)
+	} = useContext<any>(SpeakerModalContext)
 
 	return (
 		<button

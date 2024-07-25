@@ -15,7 +15,7 @@ const SpeakerModalBody = () => {
 		setModalSpeakerImageUrl,
 		modalSpeakerEmail,
 		setModalSpeakerEmail,
-	} = useContext(SpeakerModalContext)
+	} = useContext<any>(SpeakerModalContext)
 
 	return (
 		<div className="modal-body">

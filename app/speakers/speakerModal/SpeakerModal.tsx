@@ -8,7 +8,7 @@ import SpeakerModalBody from "./SpeakerModalBody"
 import SpeakerModalFooter from "./SpeakerModalFooter"
 
 const SpeakerModal = () => {
-	const { modalShow } = useContext(SpeakerModalContext)
+	const { modalShow } = useContext<any>(SpeakerModalContext)
 
 	const cssShowHide =
 		modalShow && modalShow === true

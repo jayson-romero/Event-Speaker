@@ -13,9 +13,9 @@ import { SpeakerMenuContext } from "@/components/contexts/SpeakerMenuContext"
 import SpeakerDetail from "./SpeakerDetail"
 
 const SpeakersList = () => {
-	const { speakerList, loadingStatus } = useContext(SpeakersDataContext)
+	const { speakerList, loadingStatus } = useContext<any>(SpeakersDataContext)
 	const { speakingSaturday, speakingSunday, searchText } =
-		useContext(SpeakerMenuContext)
+		useContext<any>(SpeakerMenuContext)
 
 	const filterdData = useSpeakerSortandFilter(
 		speakerList,
@@ -43,7 +43,7 @@ const SpeakersList = () => {
 
 	return (
 		<>
-			{filterdData.map((speakerRec) => {
+			{filterdData.map((speakerRec: any) => {
 				return (
 					<SpeakerDetail
 						key={speakerRec.id}

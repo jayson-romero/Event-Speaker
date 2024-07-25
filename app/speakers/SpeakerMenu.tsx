@@ -18,7 +18,7 @@ const SpeakerMenu = () => {
 		setSpeakingSunday,
 		searchText,
 		setSearchText,
-	} = useContext(SpeakerMenuContext)
+	} = useContext<any>(SpeakerMenuContext)
 
 	return (
 		<div

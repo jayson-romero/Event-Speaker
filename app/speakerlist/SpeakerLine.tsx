@@ -1,6 +1,12 @@
 import SpeakerImageToggleOnScroll from "../speakers/SpeakerImageToggleOnScroll"
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine"
-const SpeakerLine = ({ speakerRec, highlight }) => {
+const SpeakerLine = ({
+	speakerRec,
+	highlight,
+}: {
+	speakerRec: any
+	highlight: any
+}) => {
 	return (
 		<div className="col-xl-12 col-md-12">
 			<div className="card border-0 speaker-list">

@@ -18,7 +18,7 @@ import SpeakerLine from "./SpeakerLine"
 
 const URL = process.env.NEXT_PUBLIC_URL
 
-const List = ({ state, dispatch }) => {
+const List = ({ state, dispatch }: { state: any; dispatch: any }) => {
 	const [updatingId, setUpdatingId] = useState(0)
 	const [searchName, setSearchName] = useState("")
 	const [highlightChars, setHighlightChars] = useState()
@@ -78,7 +78,7 @@ const List = ({ state, dispatch }) => {
 			</div>
 
 			<div className="row g-3">
-				{speakers.map(function (speakerRec) {
+				{speakers.map(function (speakerRec: any) {
 					const highlight =
 						highlightChars?.length > 0 &&
 						(

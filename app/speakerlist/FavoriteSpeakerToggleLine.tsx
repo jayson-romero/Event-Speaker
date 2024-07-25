@@ -2,8 +2,12 @@
 import { FaHeart } from "react-icons/fa"
 import { useContext, useState } from "react"
 import { SpeakersDataContext } from "@/components/contexts/SpeakersDataContext"
-export default function FavoriteSpeakerToggleLine({ speakerRec }) {
-	const { updateSpeaker } = useContext(SpeakersDataContext)
+export default function FavoriteSpeakerToggleLine({
+	speakerRec,
+}: {
+	speakerRec: any
+}) {
+	const { updateSpeaker } = useContext<any>(SpeakersDataContext)
 	const [updating, setUpdating] = useState(false)
 
 	return (

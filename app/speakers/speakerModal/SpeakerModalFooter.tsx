@@ -7,7 +7,7 @@ import { SpeakersDataContext } from "@/components/contexts/SpeakersDataContext"
 
 const SpeakerModalFooter = () => {
 	const { speakerList, createSpeaker, updateSpeaker } =
-		useContext(SpeakersDataContext)
+		useContext<any>(SpeakersDataContext)
 	const {
 		setModalShow,
 		modalSpeakerId,
@@ -15,7 +15,7 @@ const SpeakerModalFooter = () => {
 		modalSpeakerLastName,
 		modalSpeakerEmail,
 		modalSpeakerImageUrl,
-	} = useContext(SpeakerModalContext)
+	} = useContext<any>(SpeakerModalContext)
 
 	return (
 		<div className="modal-footer justify-content-center">

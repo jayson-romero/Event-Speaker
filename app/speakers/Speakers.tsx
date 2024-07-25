@@ -14,7 +14,7 @@ import SpeakerMenu from "@/app/speakers/SpeakerMenu"
 import SpeakersList from "@/app/speakers/SpeakersList"
 
 const Speakers = () => {
-	const { darkTheme } = useContext(ThemeContext)
+	const { darkTheme } = useContext<any>(ThemeContext)
 
 	return (
 		<div className={darkTheme ? "theme-dark" : "theme-light"}>
