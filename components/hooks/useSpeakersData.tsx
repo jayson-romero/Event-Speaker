@@ -1,7 +1,7 @@
 import useGeneralizedCrudMethod from "./useGeneralizedCrudMethod"
 
 const userSpeakersData = () => {
-	const url = "http://localhost:3000/speakers"
+	const url = process.env.NEXT_PUBLIC_URL
 	const errorNotificationFn = (error) => {
 		console.log("Error from useSpeakersData", error)
 	}
